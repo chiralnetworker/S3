@@ -1,7 +1,11 @@
-AWSTemplateFormatVersion: 2019-09-09
-Resorces:
+#Corrections: Fixed misspelled Resource. Corrected AWS template version to 2010-09-09.
+#fixed where S3 Bucket had incorrect syntax missing double colons. Fixed where Bucket policy type was commented out.
+#Revision 1
+#Date 11/24/2026
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
   S3Bucket:
-    Type: 'AWS:S3:Bucket'
+    Type: 'AWS::S3::Bucket'
     Properties:
       PublicAccessBlockConfiguration:
         BlockPublicAcls: false
@@ -13,8 +17,8 @@ Resorces:
         ErrorDocument: error.html
     DeletionPolicy: Retain
     UpdateReplacePolicy: Retain
-BucketPolicy:
-    #Type: 'AWS::S3::BucketPolicy'
+  BucketPolicy:
+    Type: 'AWS::S3::BucketPolicy'
     Properties:
       PolicyDocument:
         Id: MyPolicy
